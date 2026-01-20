@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSDOM Example</title>
+</head>
+<body>
+    ชื่อ: <input id="fname" class="input" type="text" name="fname" value="John" >
+    นามสกุล: <input id="lname" class="input" type="text" name="lname" value="Doe" >
+    งานอดิเรก: 
+            <input type="text" name="hobby" value="Football" >Football
+            <input type="text" name="hobby" value="Bastketball" >Bastketball
+            <input type="text" name="hobby" value="tennis" >tennis
+    เพศ: 
+            <input type="radio" name="gender" value="male" onchange="onchangegender()" checked="true" >ชาย
+            <input type="radio" name="gender" value="female" onchange="onchangegender()" checked="true">หญิง
+    <button onclick="userClick()"> Submit   </button>
+    <div onclick="devClick()">dev Click</div>  
+    <script>    
+    const fname = document.getElementsByClassName("input")[0];
+    console.log(fname.value);
+    for (let i = 0; i < document.getElementsByClassName("input").length; i++) {
+        console.log(document.getElementsByClassName("input")[i].value);
+    }
+
+    let textbox = document.getElementsByName('input[name="hobby"]');
+    for (let i = 0; i < textbox.length; i++) {
+        console.log(textbox[i].value);
+    }
+    function userClick() {
+        console.log("Button Clicked");
+    }
+    function devClick() {
+        console.log("Dev Clicked");
+    }
+    function onchangegender() {
+        //
+        let genderInputs = document.querySelectorAll("input[name='gender']");
+        for (let i = 0; i < genderInputs.length; i++) {
+            if (genderInputs[i].checked) {
+                console.log("เพศที่เลือก: " + genderInputs[i].value);
+            }
+        }
+    }
+    </script>
+</body>
+</html>
