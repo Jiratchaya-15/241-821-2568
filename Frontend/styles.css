@@ -1,0 +1,132 @@
+/* นำเข้าฟอนต์ Kanit จาก Google Fonts เพื่อความสวยงามของภาษาไทย */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+/* ตั้งค่าพื้นฐาน */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #f0f2f5; /* สีพื้นหลังโทนเทาอ่อนสบายตา */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ให้ Form อยู่กลางหน้าจอเสมอ */
+}
+
+/* กล่อง Container หลัก */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px; /* ความกว้างสูงสุดของฟอร์ม */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เงาให้ดูลอยขึ้นมา */
+}
+
+/* ส่วนหัวของฟอร์ม */
+.header {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* การจัดระยะห่างของแต่ละ Input Group */
+.form-input {
+    margin-bottom: 20px;
+}
+
+/* จัดการ Layout แบบ Flex (สำหรับจัด Label คู่กับ Input ถ้าต้องการ) */
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่าง Elements ใน Flex */
+    flex-wrap: wrap; /* ให้ตกบรรทัดเมื่อหน้าจอเล็ก */
+}
+
+/* ปรับแต่ง Label หัวข้อ */
+.header-form {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+    min-width: 70px; /* จองพื้นที่ให้ Label */
+}
+
+/* Input Box ทั่วไป */
+.form {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Kanit', sans-serif;
+    transition: border-color 0.3s;
+}
+
+/* เปลี่ยนสีขอบเมื่อกดพิมพ์ */
+.form:focus, textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* ส่วนของ Radio Button และ Checkbox */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.1); /* ขยายขนาดปุ่มเลือกให้ใหญ่ขึ้นนิดหน่อย */
+    cursor: pointer;
+}
+
+/* จัดระเบียบส่วนเพศและงานอดิเรก */
+.gender .flex > div, 
+.form-input > div {
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* ระยะห่างระหว่างตัวเลือก */
+}
+
+/* พื้นที่เขียนคำอธิบาย (Textarea) */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical; /* ยืดหดได้เฉพาะแนวตั้ง */
+    font-family: 'Kanit', sans-serif;
+    margin-top: 5px;
+}
+
+/* จัดกึ่งกลางปุ่ม */
+.center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ปุ่มส่งข้อมูล */
+.button {
+    background-color: #4a90e2; /* สีฟ้า */
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(74, 144, 226, 0.3);
+}
+
+.button:hover {
+    background-color: #357abd; /* สีเข้มขึ้นเมื่อเอาเมาส์ชี้ */
+}
+
+.button:active {
+    transform: scale(0.98); /* ยุบลงเล็กน้อยเมื่อคลิก */
+}
