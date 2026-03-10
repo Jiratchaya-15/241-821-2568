@@ -1,99 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSDOM Example</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    ชื่อ: <input id="fname" class="input" type="text" name="fname" value="John" >
-    นามสกุล: <input id="lname" class="input" type="text" name="lname" value="Doe" >
-    งานอดิเรก: 
-            <input type="text" name="hobby" value="Football" >Football
-            <input type="text" name="hobby" value="Bastketball" >Bastketball
-            <input type="text" name="hobby" value="tennis" >tennis
-    เพศ: 
-            <input type="radio" name="gender" value="male" onchange="onchangegender()" checked="true" >ชาย
-            <input type="radio" name="gender" value="female" onchange="onchangegender()" checked="true">หญิง
-    <button onclick="userClick()"> Submit   </button>
-    <div onclick="devClick()">dev Click</div>  
-    <script>    
-    const fname = document.getElementsByClassName("input")[0];
-    console.log(fname.value);
-    for (let i = 0; i < document.getElementsByClassName("input").length; i++) {
-        console.log(document.getElementsByClassName("input")[i].value);
-    }
-
-    let textbox = document.getElementsByName('input[name="hobby"]');
-    for (let i = 0; i < textbox.length; i++) {
-        console.log(textbox[i].value);
-    }
-    function userClick() {
-        console.log("Button Clicked");
-    }
-    function devClick() {
-        console.log("Dev Clicked");
-    }
-    function onchangegender() {
-        //
-        let genderInputs = document.querySelectorAll("input[name='gender']");
-        for (let i = 0; i < genderInputs.length; i++) {
-            if (genderInputs[i].checked) {
-                console.log("เพศที่เลือก: " + genderInputs[i].value);
-            }
-        }
-    }
-    </script>
+    <div class="container">
+        <div class="header">
+            Register form
+        </div>
+        <div class="flex form-input">
+            <div class="header-form">ชื่อ</div>
+            <input class="form" name="firstname" type="text">
+        </div>
+        <div class="flex form-input">
+            <div class="header-form">นามสกุล</div>
+            <input class="form" name="lastname" type="text">
+        </div>
+        <div class="flex form-input">
+            <div class="header-form">อายุ</div> 
+            <input class="form" name="age" type="number" min="0" max="100">
+        </div>
+        <div class="flex gender form-input">
+            <div class="header-form">เพศ</div> 
+            <div class="flex">
+                <div>
+                    <input name="gender" type="radio" value="ชาย"> ชาย
+                </div>
+                <div>
+                    <input name="gender" type="radio" value="หญิง"> หญิง
+                </div>
+                <div>
+                    <input name="gender" type="radio" value="อื่นๆ"> อื่นๆ
+                </div>
+            </div>
+        </div>
+        <div class="form-input">
+            งานอดิเรก
+            <div>
+                <input name="interest" type="checkbox" value="อ่านหนังสือ"> อ่านหนังสือ
+            </div>
+            <div>
+                <input name="interest" type="checkbox" value="ดูหนัง"> ดูหนัง
+            </div>
+            <div>
+                <input name="interest" type="checkbox" value="ฟังเพลง"> ฟังเพลง
+            </div>
+        </div>
+        <div class="form-input">
+            คำอธิบาย
+            <textarea name="description"></textarea>
+        </div>
+        <div class="center">
+            <button onclick="submitData()" class="button">ส่งข้อมูล</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
-
-ชื่อ: 
-<input type="text" name="fname" onkeydown="onkeyFname()">
-<button 
-onmouseover="onmouseoverFname()"
-onmouseup="onmouseupFname()"
-onmousedown="onmousedownFname()"
->Click me</button>
-<script>
-    // onmouseover คือเหตุการณ์ที่เกิดขึ้นเมื่อเมาส์ชี้ไปที่องค์ประกอบ
-    function onmouseoverFname() {
-        console.log("Mouse is over the button");
-    }
-    function onmouseupFname() {
-        console.log("Mouse is up the button");
-    }
-    function onmousedownFname() {
-        console.log("Mouse down ");
-    }
-</script>
-<h2>แบบฟอร์มเลือกความสนใจ</h2>
-<div id ="content"></div>
-<input type="checkbox" name="interest" value="กีฬา"> กีฬา
-<input type="checkbox" name="interest" value="ดนตรี"> ดนตรี
-<input type="checkbox" name="interest" value="อ่านหนังสือ"> อ่านหนังสือ
-<br><br>
-<button onclick="submitInterest()">ส่งข้อมูล</button>
-<script>
-    function submitInterest() {
-        //ดึงข้อมูลจาก checkbox ที่ถูกเลือก
-        let checkboxes = document.querySelectorAll('input[name="interest"]');
-        let contentHTML ='<ul>';
-        //เอา value ของ checkbox ที่ถูกเลือกออกมา
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                //console.log(checkboxes[i].value); //แสดงค่าที่เลือกใน console 
-                contentHTML += '<li>' + checkboxes[i].value + '</li>';
-            }
-        }
-        //วนค่าที่เลือกใส่กลับที่ html
-        contentHTML += '</ul>';
-
-        //ใส่ html ที่สร้างขึ้นใหม่ลงใน div id="content"
-        let contentDiv = document.getElementById('content');
-        contentDiv.innerHTML=contentHTML;
-    }
-    let HiDOM = document.getElementById("hi");
-    console.log(hiDOM.textContent);
-    console.log(hiDOM.innerText);
-    console.log(hiDOM.innerHTML);
-</script>
